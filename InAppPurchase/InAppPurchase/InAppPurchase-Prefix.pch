@@ -1,0 +1,21 @@
+//
+// Prefix header for all source files of the 'InAppPurchase' target in the 'InAppPurchase' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif
+/*
+#define GCE_IOS_PLATEFORM
+#define DEBUG
+
+// ---------	NULL/True/False	---------
+#define	GCE_N				(0)
+#define GCE_ERR             (-1)
+#define	GCE_F				(false)
+#define	GCE_T				(true)
+
+#include "gceTypeDef.h"
+#include "gceTrace.h"
+ */
+
