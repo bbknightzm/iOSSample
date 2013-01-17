@@ -12,10 +12,14 @@
 #include "iOSDeviceInfo.h"
 extern "C"
 {
-    char* GetiOSMacAddress()
+    const char* GetiOSMacAddress()
     {
-        //return (char *)[[iOSDeviceInfo getMacAddress] cStringUsingEncoding:NSASCIIStringEncoding];
-        return (char *)[[iOSDeviceInfo GetiOSMacAddress] UTF8String];
+        // return (char *)[[iOSDeviceInfo GetiOSMacAddress] UTF8String]; // error : memory leak
+        // return (char *)[[iOSDeviceInfo GetiOSMacAddress] cStringUsingEncoding:NSASCIIStringEncoding]; // error : memory leak
+        NSString* macStr = [iOSDeviceInfo GetiOSMacAddress];
+        char* mac = (char *)malloc([macStr length]);
+        strcpy(mac, [macStr UTF8String]);
+        return mac;
     }
 }
 
